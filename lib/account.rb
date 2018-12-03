@@ -15,7 +15,7 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @statement.deposit(current_balance,'%.2f' % amount)
+    @statement.deposit(current_balance, '%.2f' % amount)
   end
 
   def withdraw(amount)
