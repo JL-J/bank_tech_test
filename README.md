@@ -5,3 +5,4 @@
 ## Running tests ##
 
 ## My approach ##  
+![Class diagram](ClassDiagram.jpeg)
