@@ -1,27 +1,26 @@
 require 'account'
 
 describe Account do
-  STARTING_BALANCE = '%.2f' % 0.00
-  STATMENT = ["date || credit || debit || balance", "02/12/2018 || 100.00 || || 100.00", "02/12/2018 || || 40.00 || 60.00"]
-  account = Account.new
+  let(:stub_statement) { double(:statement, statement: []) }
+  subject { Account.new(stub_statement) }
 
-  let(:date) { "02/12/2018" }
-  before do
-    allow(Time).to receive_message_chain(:now, :strftime).and_return(date)
-  end
+  STATEMENT = ["date || credit || debit || balance", "02/12/2018 || 100.00 || || 100.00", "02/12/2018 || || 40.00 || 60.00"]
 
   it "starts with an opening balance of 0" do
-    expect(account.current_balance).to eq STARTING_BALANCE
+    expect(subject.current_balance).to eq ('%.2f' % 0.00)
   end
   it "money can be deposited into the account" do
-    account.deposit(100.00)
-    expect(account.current_balance).to eq '%.2f' % 100.00
+    expect(stub_statement).to receive(:deposit).with("100.00", "100.00")
+    subject.deposit(100.00)
+    expect(subject.current_balance).to eq '%.2f' % 100.00
   end
   it 'money can be withdrawn from the account' do
-    account.withdraw(40.00)
-    expect(account.current_balance).to eq '%.2f' %  60.00
+    expect(stub_statement).to receive(:withdraw).with("-40.00", "40.00")
+    subject.withdraw(40.00)
+    expect(subject.current_balance).to eq '%.2f' %  -40.00
   end
-  it "returns the account statment with recent transactions" do
-    expect(account.view_statement).to eq STATMENT
+  it "returns the account statement with recent transactions" do
+    expect(stub_statement).to receive(:view_statement).and_return(STATEMENT)
+    expect(subject.view_statement).to eq STATEMENT
   end
 end
