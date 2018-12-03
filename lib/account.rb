@@ -7,7 +7,11 @@ class Account
   end
 
   def current_balance
-    STARTING_BALANCE
+    @balance
+  end
+
+  def deposit(amount)
+    @balance += amount
   end
 
 end
