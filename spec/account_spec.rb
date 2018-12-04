@@ -12,7 +12,7 @@ describe Account do
 
   describe "#deposit" do
     it "money can be deposited into the account" do
-      expect(stub_statement).to receive(:deposit).with("100.00", "100.00")
+      expect(stub_statement).to receive(:update)
       subject.deposit(100.00)
       expect(subject.current_balance).to eq '%.2f' % 100.00
     end
@@ -20,7 +20,7 @@ describe Account do
 
   describe "#withdraw" do
     it 'money can be withdrawn from the account' do
-      expect(stub_statement).to receive(:withdraw).with("-40.00", "40.00")
+      expect(stub_statement).to receive(:update)
       subject.withdraw(40.00)
       expect(subject.current_balance).to eq '%.2f' % -40.00
     end

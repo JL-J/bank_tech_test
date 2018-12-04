@@ -1,4 +1,5 @@
-require 'statement'
+require_relative 'statement'
+require_relative 'transaction'
 
 class Account
 
@@ -15,16 +16,23 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @statement.deposit(current_balance, '%.2f' % amount)
+    new_transaction(amount, 0)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @statement.withdraw(current_balance, '%.2f' % amount)
+    new_transaction(0, amount)
   end
 
   def view_statement
     @statement.view_statement
+  end
+
+  private
+
+  def new_transaction(credit, debit)
+    @transaction = Transaction.new(credit, debit, current_balance)
+    @statement.update(@transaction.record)
   end
 
 end
