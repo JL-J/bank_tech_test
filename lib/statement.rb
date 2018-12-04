@@ -1,12 +1,12 @@
 class Statement
 
   def initialize
-    record_header = "date || credit || debit || balance"
-    @record = [record_header]
+    @record_header = ["date || credit || debit || balance"]
+    @record = []
   end
 
   def view_statement
-    @record
+    @record_header + @record.reverse
   end
 
   def update(transaction_record)
