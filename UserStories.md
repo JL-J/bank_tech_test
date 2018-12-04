@@ -26,13 +26,13 @@ So that I can keep track of my finances
 I would like to see my bank statement showing my transactions
 ```
 
-_Further development and edge cases_
-
 ```
 As a user
 So that I know how much money I have
 I would like to be able to view my current balance
 ```
+
+_Further development and edge cases_
 
 ```
 As a user
