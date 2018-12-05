@@ -5,9 +5,10 @@ class Account
 
   STARTING_BALANCE = 0.00
 
-  def initialize(statement = Statement.new)
+  def initialize(statement = Statement.new, transactions = Transaction)
     @balance = STARTING_BALANCE
     @statement = statement
+    @transactions = transactions
   end
 
   def current_balance
@@ -31,8 +32,8 @@ class Account
   private
 
   def new_transaction(credit, debit)
-    @transaction = Transaction.new(credit, debit, current_balance)
-    @statement.update(@transaction.record)
+    @new_transaction = @transactions.new(credit, debit, current_balance)
+    @statement.update(@new_transaction.record)
   end
 
 end
