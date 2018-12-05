@@ -30,7 +30,7 @@
 Tests are written using RSpec. From the command line run `rspec`.
 
 ## My approach ##
-I used Ruby and RSpec to complete this technical challenge. User stories and TDD helped guide me when completing this project. Following OOD principles, I initially created one class which contained all the features, before refactoring and separating out concerns into three classes (see class diagram below). I used dependancy injection between Account and Statement. Classes were tested in isolation using stubs. I have achieved 100% test coverage.     
+I used Ruby and RSpec to complete this technical challenge. User stories and TDD helped guide me when completing this project. Following OOD principles, I initially created one class which contained all the features, before refactoring and separating out concerns into three classes (see class diagram below). I used dependancy injection , and classes were tested in isolation using stubs. I have achieved 100% test coverage.     
 
 ![Class diagram](ClassDiagram.jpeg)
 
