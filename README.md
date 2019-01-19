@@ -4,7 +4,7 @@
 - Clone this repository: `git clone git@github.com:JL-J/bank_tech_test.git`
 - Change into the repository `cd bank_tech_test`
 - Run `bundle install`
-- To run the app, require it in irb
+- To run the app, require it in irb `require './lib/account'`
 
 ```
 2.5.1 :001 > require './lib/account'
