@@ -47,5 +47,8 @@ describe Account do
     it "An error is thrown during #withdraw if the amount entered is not an Integer or a Float" do
       expect{subject.withdraw("money")}.to raise_error("Please enter numbers only")
     end
+    it "An error is thrown if the amount entered during deposit is 0" do
+      expect{subject.deposit(0)}.to raise_error("The amount entered cannot be equal to 0")
+    end
   end
 end
