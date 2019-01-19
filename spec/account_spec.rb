@@ -39,4 +39,10 @@ describe Account do
       expect(subject.view_statement).to eq STATEMENT
     end
   end
+
+  describe "Edge cases:" do
+    it "An error is thrown during #deposit if the amount entered is not an Integer or a Float" do
+      expect{subject.deposit("fifty pounds")}.to raise_error("Please enter numbers only")
+    end
+  end
 end
