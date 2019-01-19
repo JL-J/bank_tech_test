@@ -16,7 +16,7 @@ class Account
   end
 
   def deposit(amount)
-    fail "Please enter numbers only" if !((amount.is_a? Integer) | (amount.is_a? Float))
+    check_amount(amount)
     @balance += amount
     new_transaction(amount, 0)
   end
@@ -31,6 +31,10 @@ class Account
   end
 
   private
+
+  def check_amount(amount)
+    fail "Please enter numbers only" if !((amount.is_a? Integer) | (amount.is_a? Float))
+  end
 
   def new_transaction(credit, debit)
     @new_transaction = @transactions.new(credit, debit, current_balance)
