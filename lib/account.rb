@@ -36,6 +36,7 @@ class Account
   def check_amount(amount)
     fail "Please enter numbers only" if !((amount.is_a? Integer) | (amount.is_a? Float))
     fail "The amount entered cannot be equal to 0" if (amount.to_i == 0)
+    fail "Please enter the amount as a positive number" if (amount.to_i < 0)
   end
 
   def new_transaction(credit, debit)

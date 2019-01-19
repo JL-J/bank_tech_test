@@ -53,5 +53,8 @@ describe Account do
     it "An error is thrown if the amount entered during #withdraw is 0" do
       expect{subject.withdraw(0)}.to raise_error("The amount entered cannot be equal to 0")
     end
+    it "An error is thrown during #deposit if a negative amount is entered" do
+      expect{subject.deposit(-49.99)}.to raise_error("Please enter the amount as a positive number")
+    end
   end
 end
