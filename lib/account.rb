@@ -22,6 +22,7 @@ class Account
   end
 
   def withdraw(amount)
+    check_amount(amount)
     @balance -= amount
     new_transaction(0, amount)
   end
